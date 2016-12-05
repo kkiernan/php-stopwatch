@@ -2,7 +2,7 @@
 
 A simple stopwatch in PHP.
 
-[![Style Status](https://styleci.io/repos/38143021/shield?branch=master)](https://styleci.io/repos/38143021)
+[![StyleCI](https://styleci.io/repos/75639006/shield?branch=master)](https://styleci.io/repos/75639006)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
