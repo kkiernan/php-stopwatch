@@ -28,7 +28,7 @@ class Lap extends Object
     /**
      * Create a new instance.
      *
-     * @param float $duration
+     * @param float  $duration
      * @param string $name
      *
      * @return void

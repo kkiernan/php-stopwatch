@@ -4,23 +4,23 @@ A simple stopwatch in PHP.
 
 [![StyleCI](https://styleci.io/repos/75639006/shield?branch=master)](https://styleci.io/repos/75639006)
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+## Contents
 
+<!-- MarkdownTOC autolink="true" -->
 
 - [Installation](#installation)
-- [Methods](#methods)
-- [Examples](#examples)
-  - [Basic Usage](#basic-usage)
-  - [Recording Laps](#recording-laps)
+- [Available Methods](#available-methods)
+- [Basic Usage](#basic-usage)
+- [Laps](#laps)
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<!-- /MarkdownTOC -->
+
 
 ## Installation
 
 Install the package using composer.
 
-```
+```sh
 composer require kkiernan/php-timer
 ```
 
@@ -78,7 +78,7 @@ print_r($stopwatch->laps);
 
 The above example prints the following output:
 
-```
+```php
 Array
 (
     [0] => Kiernan\Lap Object
