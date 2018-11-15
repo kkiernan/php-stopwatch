@@ -21,7 +21,7 @@ A simple stopwatch in PHP.
 Install the package using composer.
 
 ```sh
-composer require kkiernan/php-timer
+composer require kkiernan/php-stopwatch
 ```
 
 ## Available Methods
