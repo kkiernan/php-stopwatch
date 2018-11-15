@@ -21,74 +21,86 @@ A simple stopwatch in PHP.
 Install the package using composer.
 
 ```
-composer install kkiernan/php-timer
+composer require kkiernan/php-timer
 ```
 
-## Methods
+## Available Methods
 
-- `Timer::start()`
-- `Timer::stop()`
-- `Timer::split()`
-- `Timer::laps()`
+- `start()`
+- `stop()`
+- `lap()`
+- `elapsed()`
 
-## Examples
-
-### Basic Usage
+## Basic Usage
 
 ```php
-use Kiernan\Timer;
+use Kiernan\Stopwatch;
 
 require dirname(__DIR__). '/vendor/autoload.php';
 
-Timer::start();
+$stopwatch = new Stopwatch();
+
+$stopwatch->start();
 
 usleep(1500000);
 
-$seconds = Timer::stop();
+$stopwatch->stop();
 
-echo "Script executed in $seconds seconds" . PHP_EOL;
+echo "Script executed in {$stopwatch->elapsed()} seconds";
 ```
 
+The above example prints the following output:
+
 ```
-Script executed in 1.499892950058 seconds.
+Script executed in 3.0002250671387 seconds
 ```
 
-### Recording Laps
+## Laps
 
 ```php
-use Kiernan\Timer;
+use Kiernan\Stopwatch;
 
 require dirname(__DIR__). '/vendor/autoload.php';
 
-Timer::start();
+$stopwatch = new Stopwatch();
 
+$stopwatch->start();
 sleep(1);
-
-Timer::split();
-
+$stopwatch->lap();
 sleep(2);
-
-Timer::split();
-
+$stopwatch->lap();
 sleep(1);
+$stopwatch->lap();
+$stopwatch->stop();
 
-Timer::split();
-
-foreach (Timer::laps() as $lap) {
-    echo "Lap Time: {$lap->lapTime()}" . PHP_EOL;
-    echo "Total Time: {$lap->totalTime()}" . PHP_EOL;
-    echo "Timestamp: {$lap->timestamp()}" . PHP_EOL;
-}
+print_r($stopwatch->laps);
 ```
 
+The above example prints the following output:
+
 ```
-Lap Time: 1.000440120697
-Total Time: 1.0005810260773
-Timestamp: 1480948233.6525
-Lap Time: 2.0053000450134
-Total Time: 3.0057640075684
-Timestamp: 1480948235.6578
-Lap Time: 1.0015799999237
-Total Time: 4.0073289871216
-Timestamp: 1480948236.6594
+Array
+(
+    [0] => Kiernan\Lap Object
+        (
+            [start:protected] => 1542305179.9815
+            [duration:protected] => 1.0043249130249
+            [name:protected] =>
+        )
+
+    [1] => Kiernan\Lap Object
+        (
+            [start:protected] => 1542305181.9823
+            [duration:protected] => 2.0006990432739
+            [name:protected] =>
+        )
+
+    [2] => Kiernan\Lap Object
+        (
+            [start:protected] => 1542305182.9823
+            [duration:protected] => 1.0000500679016
+            [name:protected] =>
+        )
+
+)
 ```
