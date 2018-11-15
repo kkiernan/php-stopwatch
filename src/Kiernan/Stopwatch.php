@@ -4,7 +4,7 @@ namespace Kiernan;
 
 use Exception;
 
-class Stopwatch extends Object
+class Stopwatch extends Object implements \JsonSerializable
 {
     /**
      * The start timestamp.
@@ -107,5 +107,19 @@ class Stopwatch extends Object
         $lastLap = end($this->laps);
 
         return microtime(true) - $lastLap->start;
+    }
+
+    /**
+     * Build the JSON representation.
+     *
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return [
+            'start' => $this->start,
+            'stop'  => $this->stop,
+            'laps'  => $this->laps,
+        ];
     }
 }

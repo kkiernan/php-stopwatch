@@ -2,7 +2,7 @@
 
 namespace Kiernan;
 
-class Lap extends Object
+class Lap extends Object implements \JsonSerializable
 {
     /**
      * The start timestamp.
@@ -38,5 +38,19 @@ class Lap extends Object
         $this->start = microtime(true);
         $this->duration = $duration;
         $this->name = $name;
+    }
+
+    /**
+     * Build the JSON representation.
+     *
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return [
+            'start'    => $this->start,
+            'duration' => $this->duration,
+            'name'     => $this->name,
+        ];
     }
 }
