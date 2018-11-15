@@ -66,6 +66,16 @@ class Stopwatch extends Object
     }
 
     /**
+     * Get the laps.
+     *
+     * @return array
+     */
+    public function laps()
+    {
+        return $this->laps;
+    }
+
+    /**
      * Get the total time elapsed in seconds since the stopwatch was started.
      *
      * @return float
